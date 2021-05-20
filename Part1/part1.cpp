@@ -6,13 +6,20 @@
 #include<chrono>
 using namespace std;
 using namespace std::chrono;
-
-int main()
+/*
+void Linearfunc()
 {
 	srand(time(NULL));
-	Linear ltable;
 	int age = 0;
+	int hash;
+
+	cout << "1. Ascii\n0. DJB2" << endl;
+	cin >> hash;
+
+	system("cls");
 	
+	Linear ltable(hash);
+
 	for (int i = 0; i < 100; i++)
 	{
 		int randn = rand() % (1000 - 100) + 100;
@@ -21,11 +28,54 @@ int main()
 		age = i;
 	}
 
-	//cout << ltable.nextp(11);
 	ltable.print();
 	cout << "Size: " << ltable.getSize();
-	/*
-	ltable.Add("Mia", 80);
-	ltable.Add("Tim", 80);
-	ltable.Add("Bea", 80);*/
+}*/
+
+void Hopscotchfunc()
+{
+	srand(time(NULL));
+	int age = 0;
+	int hash;
+
+	cout << "1. Ascii\n0. DJB2" << endl;
+	cin >> hash;
+
+	system("cls");
+
+	Hopscotch htable(hash);
+
+	for (int i = 0; i < 10000; i++)
+	{
+		int randn = rand() % (1000 - 100) + 100;
+		string name = to_string(randn);
+		htable.Add(name, age);
+		age = i;
+	}
+
+	htable.print();
+	cout << "Size: " << htable.getSize();
+}
+
+int main()
+{
+	while (true)
+	{
+		int choice;
+
+		cout << "1. Linear\n2. Hopscotch" << endl;
+		cin >> choice;
+
+		system("cls");
+
+		if (choice == 1)
+		{
+			//Linearfunc();
+		}
+		else if (choice == 2)
+		{
+			Hopscotchfunc();
+		}
+	}
+	
 }
