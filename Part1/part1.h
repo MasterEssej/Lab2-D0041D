@@ -414,12 +414,16 @@ public:
 
 			for (int i = 0; i < bmi; i++)
 			{
+				if (index + i >= cap)
+				{
+					index = outOfBounds(index + i);
+				}
 				tempindex = index + i;
-				if (tempindex >= cap)
+				/*if (tempindex >= cap)
 				{
 					tempindex = temp2;
 					temp2++;
-				}
+				}*/
 				if (dict[tempindex]->getElement() == nullptr)
 				{
 					dict[tempindex]->setElement(temp);
@@ -577,6 +581,13 @@ public:
 		}
 	}
 
+	int outOfBounds(int i)
+	{
+		int reset = 0;
+		reset = i - cap;
+		return reset;
+	}
+
 	int nextPrime(int currentPrime) {
 		currentPrime += currentPrime;
 		bool isPrime = false;
@@ -689,12 +700,16 @@ public:
 				}
 				for (int i = 0; i < bmi; i++)
 				{
+					if (index + i >= cap)
+					{
+						index = outOfBounds(index + i);
+					}
 					tempindex = index + i;
-					if (tempindex >= cap)
+					/*if (tempindex >= cap)
 					{
 						tempindex = temp2;
 						temp2++;
-					}
+					}*/
 
 					if (dict[index]->getBmap()->getBit(i) == true)
 					{

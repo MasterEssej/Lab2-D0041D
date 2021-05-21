@@ -45,10 +45,12 @@ void Hopscotchfunc()
 
 	Hopscotch htable(hash);
 
-	for (int i = 0; i < 10000; i++)
+	for (int i = 0; i < 100; i++)
 	{
-		int randn = rand() % (1000 - 100) + 100;
-		string name = to_string(randn);
+		string extra = std::to_string(rand());
+		string name = std::to_string(rand()) + extra;
+		//int randn = rand() % (1000 - 100) + 100;
+		//string name = to_string(randn);
 		htable.Add(name, age);
 		age = i;
 	}
